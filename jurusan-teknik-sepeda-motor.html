@@ -8,7 +8,7 @@
   <meta name="keywords" content="jurusan teknik sepeda motor SMK, TSM SMK, prospek kerja mekanik motor, mata pelajaran TSM SMK, kompetensi keahlian teknik sepeda motor" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -41,26 +41,37 @@
 
   <style>
     :root {
-      --primary: #b83200;
-      --primary-dark: #1e1008;
-      --primary-mid: #3d1500;
-      --accent: #ff6b1a;
-      --accent-light: #ffb380;
-      --accent-dim: rgba(255,107,26,0.15);
-      --bg: #f5f2f0;
-      --surface: #ffffff;
-      --text: #1e1208;
-      --text-muted: #6b5040;
-      --border: #e0d0c4;
-      --radius: 14px;
-      --shadow: 0 4px 24px rgba(184,50,0,0.09);
+      /* Blue scale */
+      --blue-dark:   #0b3d91;
+      --blue-mid:    #1565c0;
+      --blue-light:  #1e88e5;
+      --blue-pale:   #e3eeff;
+      --blue-ghost:  #f0f6ff;
+
+      /* Gold scale */
+      --gold:        #ffb300;
+      --gold-light:  #ffd54f;
+      --gold-dim:    rgba(255,179,0,0.18);
+
+      /* Neutral */
+      --bg:          #f5f9ff;
+      --surface:     #ffffff;
+      --text:        #0f1f3d;
+      --text-mid:    #3a5080;
+      --text-muted:  #6b7fa8;
+      --border:      #d4e3f7;
+
+      --radius:      14px;
+      --radius-sm:   8px;
+      --shadow:      0 4px 24px rgba(11,61,145,0.08);
+      --shadow-md:   0 8px 32px rgba(11,61,145,0.13);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
@@ -69,20 +80,81 @@
 
     /* ── TOP BAR ── */
     .topbar {
-      background: var(--primary-dark);
+      background: var(--blue-dark);
       color: rgba(255,255,255,0.65);
       font-size: 12px;
       text-align: center;
       padding: 8px 16px;
       letter-spacing: 0.4px;
     }
-    .topbar span { color: var(--accent-light); font-weight: 600; }
+    .topbar span {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 61, 145, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+    }
+    .navbar-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+      gap: 16px;
+    }
+    .navbar-brand {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .navbar-brand .brand-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .navbar-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+    .navbar-links a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    @media (max-width: 640px) { .navbar-links { display: none; } }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 55%, var(--primary) 100%);
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 55%, var(--blue-light) 100%);
       color: #fff;
-      padding: 64px 24px 56px;
+      padding: 72px 24px 60px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -92,66 +164,67 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(ellipse at 15% 60%, rgba(255,107,26,0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 20%, rgba(255,107,26,0.08) 0%, transparent 40%),
-        url("data:image/svg+xml,%3Csvg width='100' height='60' viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ff6b1a' stroke-opacity='0.05' stroke-width='1.5'%3E%3Ccircle cx='20' cy='45' r='14'/%3E%3Ccircle cx='80' cy='45' r='14'/%3E%3Cpath d='M34 45 L42 20 L58 20 L66 45'/%3E%3Cpath d='M42 20 L50 10 L58 20'/%3E%3C/g%3E%3C/svg%3E");
+        radial-gradient(ellipse at 15% 60%, rgba(255,179,0,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(30,136,229,0.15) 0%, transparent 40%),
+        url("data:image/svg+xml,%3Csvg width='100' height='60' viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1.5'%3E%3Ccircle cx='20' cy='45' r='14'/%3E%3Ccircle cx='80' cy='45' r='14'/%3E%3Cpath d='M34 45 L42 20 L58 20 L66 45'/%3E%3Cpath d='M42 20 L50 10 L58 20'/%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,107,26,0.15);
-      border: 1px solid rgba(255,107,26,0.4);
-      color: var(--accent-light);
-      font-size: 12px;
+      background: rgba(255,179,0,0.15);
+      border: 1px solid rgba(255,213,79,0.4);
+      color: var(--gold-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 100px;
       margin-bottom: 24px;
       position: relative;
     }
     .hero h1 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(2rem, 5.5vw, 3.1rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 2.9rem);
       font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 16px;
+      line-height: 1.18;
+      margin-bottom: 18px;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      letter-spacing: -0.3px;
       position: relative;
     }
     .hero h1 em {
       font-style: normal;
-      color: var(--accent);
+      color: var(--gold);
     }
     .hero p {
-      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
       color: rgba(255,255,255,0.72);
-      max-width: 620px;
+      max-width: 600px;
       margin: 0 auto 32px;
       position: relative;
-      font-family: 'Source Sans 3', sans-serif;
+      font-family: 'DM Sans', sans-serif;
     }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      font-size: 13px;
+      gap: 10px;
+      font-size: 12.5px;
       position: relative;
     }
     .hero-meta span {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
       padding: 6px 16px;
       border-radius: 100px;
       color: rgba(255,255,255,0.82);
+      font-weight: 500;
     }
 
     /* ── WRAPPER ── */
@@ -160,47 +233,55 @@
     /* ── INTRO ── */
     .intro-section {
       background: var(--surface);
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--blue-light);
       border-radius: var(--radius);
-      padding: 28px 32px;
+      padding: 26px 30px;
       margin: 40px auto;
       max-width: 880px;
       box-shadow: var(--shadow);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text);
+      line-height: 1.75;
     }
-    .intro-section strong { color: var(--primary); }
+    .intro-section strong { color: var(--blue-mid); }
 
     /* ── SECTION ── */
-    .section { max-width: 880px; margin: 48px auto; padding: 0 20px; }
+    .section { max-width: 880px; margin: 52px auto; padding: 0 20px; }
     .section-label {
-      font-size: 11px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--blue-light);
       margin-bottom: 8px;
     }
     .section h2 {
-      font-family: 'Barlow', sans-serif;
-      font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.35rem, 3.5vw, 1.85rem);
       font-weight: 800;
-      color: var(--primary-dark);
-      margin-bottom: 24px;
+      color: var(--blue-dark);
+      margin-bottom: 22px;
       line-height: 1.25;
+      letter-spacing: -0.2px;
     }
-    .divider { border: none; border-top: 2px solid var(--border); margin: 48px auto; max-width: 880px; }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 52px auto;
+      max-width: 880px;
+    }
 
     /* ── STATS ── */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 14px;
       margin-bottom: 32px;
     }
     @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
     .stat-card {
-      background: linear-gradient(135deg, var(--primary-mid), var(--primary));
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
       color: #fff;
       border-radius: var(--radius);
       padding: 22px 16px;
@@ -211,51 +292,59 @@
     .stat-card::after {
       content: '';
       position: absolute;
-      bottom: -16px; right: -16px;
-      width: 56px; height: 56px;
+      bottom: -18px; right: -18px;
+      width: 60px; height: 60px;
       border-radius: 50%;
-      background: rgba(255,107,26,0.15);
+      background: rgba(255,179,0,0.12);
     }
     .stat-card .val {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.9rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.85rem;
       font-weight: 800;
-      color: var(--accent-light);
+      color: var(--gold-light);
       display: block;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.5px;
     }
-    .stat-card .lbl { font-size: 12px; color: rgba(255,255,255,0.72); margin-top: 4px; line-height: 1.4; }
+    .stat-card .lbl {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.70);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
 
     /* ── MAPEL ── */
     .mapel-group { margin-bottom: 28px; }
     .mapel-group h3 {
-      font-size: 15px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--blue-mid);
       margin-bottom: 12px;
       padding-bottom: 8px;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
     }
     .mapel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .mapel-tags span {
       background: var(--bg);
       border: 1px solid var(--border);
-      color: var(--text);
+      color: var(--text-mid);
       font-size: 13px;
+      font-weight: 500;
       padding: 6px 14px;
       border-radius: 100px;
     }
     .mapel-tags span.highlight {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      border-color: #b3cff5;
+      font-weight: 600;
     }
 
     /* ── KOMPETENSI ── */
     .kompetensi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
     .komp-card {
       background: var(--surface);
@@ -272,20 +361,27 @@
       position: absolute;
       top: 0; left: 0;
       width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--accent), var(--primary));
+      background: linear-gradient(180deg, var(--blue-light), var(--blue-dark));
       opacity: 0;
       transition: opacity 0.2s;
     }
-    .komp-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(184,50,0,0.15); }
+    .komp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
     .komp-card:hover::before { opacity: 1; }
-    .komp-icon { font-size: 28px; margin-bottom: 12px; display: block; }
-    .komp-card h4 { font-size: 15px; font-weight: 700; color: var(--primary-dark); margin-bottom: 8px; line-height: 1.3; }
-    .komp-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+    .komp-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+    .komp-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .komp-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
     /* ── KARIR ── */
     .karir-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
       gap: 12px;
     }
     .karir-card {
@@ -295,64 +391,107 @@
       padding: 16px 14px;
       text-align: center;
       font-size: 13px;
-      color: var(--text);
+      color: var(--text-mid);
       font-weight: 500;
       box-shadow: var(--shadow);
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .karir-card:hover { border-color: var(--accent); color: var(--primary); }
+    .karir-card:hover {
+      border-color: var(--blue-light);
+      color: var(--blue-mid);
+      background: var(--blue-ghost);
+    }
     .karir-card .k-icon { font-size: 22px; display: block; margin-bottom: 6px; }
     .karir-note {
       margin-top: 20px;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
       color: rgba(255,255,255,0.85);
       border-radius: var(--radius);
       padding: 20px 24px;
       font-size: 14px;
-      line-height: 1.7;
-      border-left: 4px solid var(--accent);
+      line-height: 1.75;
+      border-left: 4px solid var(--gold);
     }
 
     /* ── TABLE ── */
-    .table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    thead { background: linear-gradient(90deg, var(--primary-mid), var(--primary)); color: #fff; }
-    thead th { padding: 14px 16px; text-align: left; font-weight: 600; }
+    thead {
+      background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
+      color: #fff;
+    }
+    thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
     tbody tr { border-bottom: 1px solid var(--border); background: var(--surface); }
-    tbody tr:hover { background: #fdf0ea; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--blue-ghost); }
     tbody td { padding: 13px 16px; color: var(--text); vertical-align: top; }
+    tbody td strong { color: var(--blue-mid); }
 
     /* ── TIPS ── */
-    .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
     .tip-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px 20px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .tip-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle at top right, var(--blue-pale), transparent 70%);
+      pointer-events: none;
     }
     .tip-num {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 2.2rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--blue-light);
       line-height: 1;
       margin-bottom: 12px;
       display: block;
-      opacity: 0.7;
+      opacity: 0.5;
     }
-    .tip-card h4 { font-size: 15px; color: var(--primary-dark); margin-bottom: 8px; font-weight: 700; }
-    .tip-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+    .tip-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14.5px;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .tip-card p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
     /* ── FAQ ── */
-    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
     .faq-item {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
+      transition: border-color 0.2s;
     }
+    .faq-item.open { border-color: var(--blue-light); }
     .faq-q {
       width: 100%;
       text-align: left;
@@ -360,42 +499,47 @@
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 600;
-      color: var(--primary-dark);
+      color: var(--blue-dark);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      font-family: inherit;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
     .faq-q .arrow {
-      width: 24px; height: 24px;
+      width: 26px; height: 26px;
       border-radius: 50%;
-      background: var(--bg);
+      background: var(--blue-pale);
+      color: var(--blue-mid);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      font-size: 14px;
-      transition: transform 0.3s;
+      font-size: 13px;
+      transition: transform 0.3s, background 0.2s;
     }
-    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-item.open .faq-q .arrow {
+      transform: rotate(180deg);
+      background: var(--blue-light);
+      color: #fff;
+    }
     .faq-a {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.35s ease, padding 0.3s;
       padding: 0 20px;
       color: var(--text-muted);
-      font-size: 14.5px;
-      line-height: 1.75;
+      font-size: 14px;
+      line-height: 1.8;
     }
-    .faq-item.open .faq-a { max-height: 320px; padding: 0 20px 18px; }
+    .faq-item.open .faq-a { max-height: 360px; padding: 0 20px 20px; }
 
     /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 50%, var(--primary) 100%);
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 50%, var(--blue-light) 100%);
       color: #fff;
       text-align: center;
-      padding: 60px 24px;
+      padding: 64px 24px;
       margin-top: 64px;
       position: relative;
       overflow: hidden;
@@ -404,16 +548,15 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center bottom, rgba(255,107,26,0.15) 0%, transparent 65%);
+      background: radial-gradient(ellipse at center bottom, rgba(255,179,0,0.12) 0%, transparent 65%);
       pointer-events: none;
     }
     .cta-section h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.55rem, 4.5vw, 2.2rem);
       font-weight: 800;
       margin-bottom: 12px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      letter-spacing: -0.3px;
       position: relative;
     }
     .cta-section p {
@@ -425,24 +568,43 @@
       margin-right: auto;
       position: relative;
     }
-    .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; position: relative; }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      position: relative;
+    }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 28px;
+      padding: 13px 28px;
       border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
       border: none;
-      font-family: inherit;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+    .btn:hover { transform: translateY(-2px); }
+
+    /* Gold button */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--blue-dark);
+      box-shadow: 0 4px 18px rgba(255,179,0,0.35);
+    }
+    .btn-gold:hover { box-shadow: 0 8px 28px rgba(255,179,0,0.5); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.38);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
 
     /* ── JURUSAN LAIN ── */
     .jurusan-links {
@@ -454,23 +616,32 @@
     .jurusan-links p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
     .jurusan-links a {
       display: inline-block;
-      margin: 4px 6px;
-      font-size: 13px;
-      color: var(--primary);
+      margin: 4px 5px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-mid);
       background: var(--bg);
       border: 1px solid var(--border);
       padding: 6px 16px;
       border-radius: 100px;
       text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .jurusan-links a:hover,
-    .jurusan-links a.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .jurusan-links a:hover {
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      border-color: #b3cff5;
+    }
+    .jurusan-links a.active {
+      background: var(--blue-mid);
+      color: #fff;
+      border-color: var(--blue-mid);
+    }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--primary-dark);
-      color: rgba(255,255,255,0.45);
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.42);
       text-align: center;
       font-size: 12px;
       padding: 20px;
@@ -478,13 +649,23 @@
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .hero > * { animation: fadeUp 0.6s ease both; }
-    .hero > *:nth-child(2) { animation-delay: 0.1s; }
-    .hero > *:nth-child(3) { animation-delay: 0.2s; }
-    .hero > *:nth-child(4) { animation-delay: 0.3s; }
+    .hero > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero > *:nth-child(3) { animation-delay: 0.25s; }
+    .hero > *:nth-child(4) { animation-delay: 0.35s; }
+
+    /* Muted text utility */
+    .text-muted { color: var(--text-muted); }
+    .text-mid   { color: var(--text-mid); }
+    .sub-text {
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
   </style>
 </head>
 <body>
@@ -494,10 +675,27 @@
     🏫 SMK Ciledug Al-Musaddadiyah Garut &nbsp;|&nbsp; Kompetensi Keahlian: <span>Teknik Sepeda Motor (TSM)</span>
   </div>
 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-brand">
+        <span class="brand-dot"></span>
+        TSM — Teknik Sepeda Motor
+      </a>
+      <ul class="navbar-links">
+        <li><a href="#kurikulum">Kurikulum</a></li>
+        <li><a href="#kompetensi">Kompetensi</a></li>
+        <li><a href="#karir">Karir</a></li>
+        <li><a href="#sertifikasi">Sertifikasi</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- HERO -->
   <header class="hero">
     <div class="hero-badge">🏍️ Kompetensi Keahlian | Teknik Sepeda Motor SMK</div>
-    <h1>Jurusan <em>Teknik Sepeda Motor</em> SMK: Prospek Karir, Mata Pelajaran, dan Peluang Masa Depan</h1>
+    <h1>Jurusan <em>Teknik Sepeda Motor</em> SMK:<br>Prospek Karir, Mata Pelajaran & Peluang Masa Depan</h1>
     <p>Panduan lengkap untuk calon siswa baru yang ingin berkarir di dunia otomotif — servis mesin, kelistrikan kendaraan, diagnosis modern, dan peluang wirausaha bengkel mandiri.</p>
     <div class="hero-meta">
       <span>🎓 Jenjang SMK / Sederajat</span>
@@ -517,10 +715,10 @@
   <div class="section">
     <div class="section-label">Tentang Jurusan</div>
     <h2>Apa Itu Jurusan Teknik Sepeda Motor di SMK?</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">
+    <p class="sub-text">
       Jurusan <strong>Teknik Sepeda Motor (TSM)</strong> adalah program keahlian yang membekali siswa dengan kemampuan melakukan perawatan, perbaikan, dan diagnosis kendaraan sepeda motor secara sistematis dan profesional. Materi mencakup teknik mesin, sistem transmisi, rem, suspensi, kelistrikan kendaraan, injeksi bahan bakar (EFI), serta pengenalan teknologi kendaraan listrik.
     </p>
-    <p style="color:var(--text-muted);margin-bottom:32px;font-size:15px;">
+    <p class="sub-text">
       TSM bukan sekadar belajar bongkar-pasang komponen — ini adalah penguasaan teknologi otomotif yang terus berkembang. Lulusan TSM mampu bekerja di dealer resmi berbagai merek, bengkel umum, perusahaan transportasi, hingga membuka bengkel sendiri sebagai wirausahawan mandiri yang profesional.
     </p>
 
@@ -547,10 +745,10 @@
   <hr class="divider" />
 
   <!-- MATA PELAJARAN -->
-  <div class="section">
+  <div class="section" id="kurikulum">
     <div class="section-label">Kurikulum</div>
     <h2>Mata Pelajaran yang Dipelajari</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Selama tiga tahun, kamu akan mempelajari dunia teknik otomotif dari dasar teori mesin hingga diagnosis dan perbaikan sistem modern berbasis elektronik.</p>
+    <p class="sub-text">Selama tiga tahun, kamu akan mempelajari dunia teknik otomotif dari dasar teori mesin hingga diagnosis dan perbaikan sistem modern berbasis elektronik.</p>
 
     <div class="mapel-group">
       <h3>Mata Pelajaran Umum & Adaptif</h3>
@@ -586,10 +784,10 @@
   <hr class="divider" />
 
   <!-- KOMPETENSI -->
-  <div class="section">
+  <div class="section" id="kompetensi">
     <div class="section-label">Keahlian Lulusan</div>
     <h2>Kompetensi yang Dikuasai Lulusan</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Berikut keahlian praktis yang wajib dikuasai lulusan TSM sesuai standar industri otomotif nasional dan kebutuhan dunia kerja.</p>
+    <p class="sub-text">Berikut keahlian praktis yang wajib dikuasai lulusan TSM sesuai standar industri otomotif nasional dan kebutuhan dunia kerja.</p>
 
     <div class="kompetensi-grid">
       <div class="komp-card">
@@ -628,10 +826,10 @@
   <hr class="divider" />
 
   <!-- KARIR -->
-  <div class="section">
+  <div class="section" id="karir">
     <div class="section-label">Prospek Kerja</div>
     <h2>Prospek Karir Lulusan Teknik Sepeda Motor SMK</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Industri otomotif Indonesia adalah salah satu yang terbesar di Asia Tenggara — kebutuhan mekanik dan teknisi terampil ada di seluruh pelosok negeri.</p>
+    <p class="sub-text">Industri otomotif Indonesia adalah salah satu yang terbesar di Asia Tenggara — kebutuhan mekanik dan teknisi terampil ada di seluruh pelosok negeri.</p>
 
     <div class="karir-grid">
       <div class="karir-card"><span class="k-icon">🏍️</span>Mekanik Dealer Resmi</div>
@@ -654,10 +852,10 @@
   <hr class="divider" />
 
   <!-- SERTIFIKASI -->
-  <div class="section">
+  <div class="section" id="sertifikasi">
     <div class="section-label">Sertifikasi Profesi</div>
     <h2>Sertifikasi Profesi yang Dapat Diraih</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Sertifikasi ini meningkatkan kepercayaan klien, membuka akses ke dealer resmi, dan memperbesar peluang karir di industri otomotif nasional maupun internasional.</p>
+    <p class="sub-text">Sertifikasi ini meningkatkan kepercayaan klien, membuka akses ke dealer resmi, dan memperbesar peluang karir di industri otomotif nasional maupun internasional.</p>
 
     <div class="table-wrap">
       <table>
@@ -671,28 +869,28 @@
         <tbody>
           <tr>
             <td><strong>Uji Kompetensi Keahlian (UKK)</strong></td>
-            <td>BNSP / Kemendikbud</td>
-            <td>Sertifikat kompetensi nasional wajib SMK</td>
+            <td class="text-mid">BNSP / Kemendikbud</td>
+            <td class="text-muted">Sertifikat kompetensi nasional wajib SMK</td>
           </tr>
           <tr>
             <td><strong>Sertifikasi BNSP Teknik Sepeda Motor</strong></td>
-            <td>BNSP / LSP Otomotif</td>
-            <td>SKKNI bidang perawatan dan perbaikan sepeda motor</td>
+            <td class="text-mid">BNSP / LSP Otomotif</td>
+            <td class="text-muted">SKKNI bidang perawatan dan perbaikan sepeda motor</td>
           </tr>
           <tr>
             <td><strong>Honda Technical Expert (HTE)</strong></td>
-            <td>Honda / AHM</td>
-            <td>Sertifikasi teknisi resmi Honda untuk perawatan & perbaikan</td>
+            <td class="text-mid">Honda / AHM</td>
+            <td class="text-muted">Sertifikasi teknisi resmi Honda untuk perawatan & perbaikan</td>
           </tr>
           <tr>
             <td><strong>Yamaha Technician Certification</strong></td>
-            <td>Yamaha / YMKI</td>
-            <td>Sertifikasi mekanik resmi Yamaha tingkat dasar dan lanjutan</td>
+            <td class="text-mid">Yamaha / YMKI</td>
+            <td class="text-muted">Sertifikasi mekanik resmi Yamaha tingkat dasar dan lanjutan</td>
           </tr>
           <tr>
             <td><strong>Pelatihan EV (Motor Listrik)</strong></td>
-            <td>Kemenperin / Pabrikan EV</td>
-            <td>Teknologi baterai, BMS, dan servis kendaraan listrik roda dua</td>
+            <td class="text-mid">Kemenperin / Pabrikan EV</td>
+            <td class="text-muted">Teknologi baterai, BMS, dan servis kendaraan listrik roda dua</td>
           </tr>
         </tbody>
       </table>
@@ -705,7 +903,7 @@
   <div class="section">
     <div class="section-label">Tips Sukses</div>
     <h2>Tips Sukses di Jurusan Teknik Sepeda Motor</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Empat kunci yang membedakan mekanik biasa dengan teknisi otomotif profesional yang langsung dipercaya dealer dan pelanggan.</p>
+    <p class="sub-text">Empat kunci yang membedakan mekanik biasa dengan teknisi otomotif profesional yang langsung dipercaya dealer dan pelanggan.</p>
 
     <div class="tips-grid">
       <div class="tip-card">
@@ -734,10 +932,10 @@
   <hr class="divider" />
 
   <!-- FAQ -->
-  <div class="section">
+  <div class="section" id="faq">
     <div class="section-label">FAQ</div>
     <h2>Pertanyaan yang Sering Ditanyakan</h2>
-    <p style="color:var(--text-muted);margin-bottom:24px;font-size:15px;">Jawaban jujur untuk keraguan yang paling umum dari calon siswa dan orang tua.</p>
+    <p class="sub-text">Jawaban jujur untuk keraguan yang paling umum dari calon siswa dan orang tua.</p>
 
     <div class="faq-list">
       <div class="faq-item">
@@ -783,7 +981,7 @@
     <h2>Siap Berkarir di Dunia Otomotif & Wirausaha Bengkel?</h2>
     <p>Hubungi sekolah untuk informasi pendaftaran, jadwal kunjungan, dan konsultasi pemilihan jurusan gratis.</p>
     <div class="cta-buttons">
-      <a href="#" class="btn btn-primary">📝 Daftar Sekarang</a>
+      <a href="#" class="btn btn-gold">📝 Daftar Sekarang</a>
       <a href="#" class="btn btn-outline">📞 Hubungi Kami</a>
     </div>
   </section>
@@ -795,7 +993,7 @@
     <a href="#">Bisnis Digital</a>
     <a href="#">Teknik Jaringan Komputer</a>
     <a href="#">Manajemen Perkantoran</a>
-    <a href="#">Pemasaran</a>
+    <a href="#">Teknik Kendaraan Ringan</a>
     <a href="#">Desain Komunikasi Visual</a>
     <a href="#" class="active">Teknik Sepeda Motor</a>
     <a href="#">Jurusan Lainnya</a>
